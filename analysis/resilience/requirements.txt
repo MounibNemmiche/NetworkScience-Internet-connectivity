@@ -1,0 +1,7 @@
+# Tested interpreter: CPython 3.12.10 (install Python separately).
+# Student B's environment; Student A's root requirements are preserved.
+networkx==3.6.1
+numpy==2.4.3
+scipy==1.15.2
+matplotlib==3.9.3
+pytest==9.0.2

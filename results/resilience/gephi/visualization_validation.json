@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "fixed_surviving_positions_checked": 1174,
+  "fixed_surviving_sizes_checked": 1174,
+  "lost_external_labels_checked": 41,
+  "gephi_project_crc": "passed",
+  "screenshots": {
+    "01_full_communities": {
+      "nodes": 80966,
+      "edges": 657444,
+      "pixels": [
+        2146,
+        1370
+      ],
+      "sha256": "e91eb913e81f685d701c1da6f9809c7642345acccc3a1f7afe002903ae511274"
+    },
+    "02_community_1": {
+      "nodes": 14285,
+      "edges": 138088,
+      "pixels": [
+        2146,
+        1370
+      ],
+      "sha256": "9a097c8031a2b2cb2d55b30534f3e755508d042293d932223524fb5824169bfe"
+    },
+    "03_community_21": {
+      "nodes": 322,
+      "edges": 416,
+      "pixels": [
+        2146,
+        1370
+      ],
+      "sha256": "1f831790a0e4b0e4c0a07a161b3e0eb4fb1da38744eccfaad42f3f25d54ea503"
+    },
+    "04_italy_providers_before": {
+      "nodes": 1194,
+      "edges": 9879,
+      "pixels": [
+        2146,
+        1370
+      ],
+      "sha256": "4187642fb839ecdf5adadf98512cb99c69df862cc7eab1dcb0c7c567491874a9"
+    },
+    "05_italy_providers_after20": {
+      "nodes": 1174,
+      "edges": 7940,
+      "pixels": [
+        2146,
+        1370
+      ],
+      "sha256": "ff8c1134ddbaa181651f7a0282e4f783d0634ed2d55416fb3b00dff2302dd409"
+    },
+    "06_candidate_providers": {
+      "nodes": 107,
+      "edges": 1390,
+      "pixels": [
+        2146,
+        1370
+      ],
+      "sha256": "59f8d410baca750151ea76acc69a1b4c706c791528c5d78bccb7603403bcd6a1"
+    }
+  },
+  "native_community_frequencies_checked": 98,
+  "saved_project_reopen_check": "passed",
+  "project_sha256": "77a7eebf615db4e2cc5b4bf5ef29f8541a9eee1edbb91f10d4358b45813f5658"
+}

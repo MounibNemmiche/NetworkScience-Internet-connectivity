@@ -1,0 +1,103 @@
+{
+  "graph": "simple undirected unweighted AS topology; snapshot 20261001",
+  "community_seed": 22,
+  "community_resolution": 1.0,
+  "communities": 98,
+  "baseline_fingerprint": "abfe3cfdfeae63524c7e5e755cd6e8992783f6108de23186c86de21af6316a80",
+  "community_assignments_sha256": "5981bde4dafe4bb80d67810d874c447adfbfa776fbe855173589e24915c1783d",
+  "gexf_sha256": "b6a2442decd0d0d5ac05b8d0d751897a3b5b8f574c662a7d911701c82bbf187f",
+  "views": {
+    "full": {
+      "nodes": 80966,
+      "edges": 657444
+    },
+    "italian_and_providers": {
+      "nodes": 1194,
+      "edges": 9879
+    },
+    "community_1": {
+      "nodes": 14285,
+      "edges": 138088
+    },
+    "community_21": {
+      "nodes": 322,
+      "edges": 416
+    },
+    "providers": {
+      "nodes": 107,
+      "edges": 1390
+    },
+    "italian_and_providers_after_20": {
+      "nodes": 1174,
+      "edges": 7940
+    }
+  },
+  "removed_asns": [
+    174,
+    9002,
+    1299,
+    3257,
+    3356,
+    8220,
+    6939,
+    32787,
+    15830,
+    2914,
+    13335,
+    6461,
+    6797,
+    39686,
+    198949,
+    34927,
+    20473,
+    6453,
+    1273,
+    702
+  ],
+  "focal_losing_external_reachability": [
+    8911,
+    12428,
+    12498,
+    12663,
+    12922,
+    12954,
+    13180,
+    15515,
+    15529,
+    15607,
+    15807,
+    16379,
+    20794,
+    20819,
+    21074,
+    24771,
+    25305,
+    28791,
+    34680,
+    42833,
+    44485,
+    44721,
+    56641,
+    56941,
+    197636,
+    198166,
+    199653,
+    200604,
+    201947,
+    203294,
+    203336,
+    203540,
+    203594,
+    206227,
+    206459,
+    208496,
+    211062,
+    211278,
+    212553,
+    214219,
+    216108
+  ],
+  "reachability_computed_on": "full graph after the 20 saved targeted provider removals",
+  "initial_coordinates": "Random seed 22 disk; replaced by Gephi layouts for screenshots",
+  "visualization_only": "Community display groups the eight largest communities by raw ID; others share grey. All 98 raw IDs remain in community_id."
+}

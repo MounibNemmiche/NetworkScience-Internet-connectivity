@@ -1,0 +1,648 @@
+{
+  "baseline_fingerprint": "abfe3cfdfeae63524c7e5e755cd6e8992783f6108de23186c86de21af6316a80",
+  "config_sha256": "b294e271e60fa5e1deb61e145e314de47371a08d1f9a0f10d35ccb6ce1300897",
+  "created_at_utc": "2026-11-12T20:01:56.505338+00:00",
+  "environment": {
+    "matplotlib": "3.9.3",
+    "networkx": "3.6.1",
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "scipy": "1.15.2"
+  },
+  "input_counts": {
+    "aggregated_relationships": 657444,
+    "candidate_providers": 107,
+    "connected_components": 1,
+    "excluded_focal_asns": 0,
+    "excluded_from_lcc": 0,
+    "external_asns": 79433,
+    "focal_asns_IT": 1087,
+    "global_topology_edges": 657444,
+    "global_topology_nodes": 80966,
+    "lcc_nodes": 80966,
+    "unique_undirected_edges": 657444,
+    "unknown_country_asns": 446
+  },
+  "input_warnings": [
+    {
+      "affected_candidate_providers": [
+        1273
+      ],
+      "asns_by_label": {
+        "EU": [
+          249,
+          250,
+          764,
+          777,
+          1121,
+          1124,
+          1126,
+          1234,
+          1271,
+          1273,
+          1342,
+          1732,
+          1770,
+          1835,
+          1961,
+          2578,
+          6168,
+          19178
+        ]
+      },
+      "code": "unresolved_country_labels",
+      "message": "Non-country labels are preserved in the supplied external set. Agree on their treatment and version any changed package before final robustness runs."
+    },
+    {
+      "code": "crlf_hash_portability",
+      "files": [
+        "nodes.csv",
+        "relationships.csv",
+        "edges.csv",
+        "analysis_asns.csv",
+        "focal_asns.csv",
+        "external_asns.csv"
+      ],
+      "message": "These CSVs use CRLF. Git newline conversion can change byte hashes; agree on a portable artifact policy before final shared runs."
+    }
+  ],
+  "manifest_sha256": "5354bcc7336d3d053f921896cc75ac5d6ee43f574cbfd1de3e772031b2cb875c",
+  "output_hashes": {
+    "figures/robustness_focal_external_fraction.pdf": "2abea1400ec3eccd16b5d4749c957c7f1a6901228a8c5abbfb6df75424386cbf",
+    "figures/robustness_focal_external_fraction.png": "763feea61e51f088669d0f27fef18841a38277dd6d3eeb784146b67838cf9908",
+    "figures/robustness_focal_external_pair_fraction.pdf": "97ad7f583bd62ef52ee5b768a20212503d5f21dbb43984ca3b9a704879b7c7be",
+    "figures/robustness_focal_external_pair_fraction.png": "a49142963413e90ca0d449f62e8bf262e23bb4e01a344a669be59cc44c07b629",
+    "figures/robustness_largest_component_fraction.pdf": "1ddb802418602f3a4c0c1942e8b6086334dfdca45788ca22c349ceb7e251bd19",
+    "figures/robustness_largest_component_fraction.png": "5a6a1741a30408491918d204bbc4224b2458e78e42ce3f6ac85dbad220d59214",
+    "figures/robustness_loss_overview.pdf": "e38b52600a32634c99cf3cf1d421f803ace6c4718c8b0ca4d8c293766a8475dc",
+    "figures/robustness_loss_overview.png": "e87f7036684f76658ae78485481114b1a4d9cc35e62ed539240593b085b36064",
+    "removal_order.csv": "cd75b5b732119c8aca6e7e837f016761138c271a1c6ee6a0ce0785de7a2ad061",
+    "robustness_findings.md": "2a2c9855622dfdb5b78457d53bcd843071fb5d21bd04b40d0d7b42dbe454efae",
+    "robustness_runs.csv": "3ca6f37a2b41cbeefe7b02833ee5ce9dedef9399283a139cfcd9ff1f1cd538bf",
+    "robustness_summary.csv": "7bb814c5202d38b8478c0d0681ad11ea1aaade2306745ff743b004cb1ce5b21a",
+    "sensitivity/eu_excluded/removal_order.csv": "8e75a772b1dbb1df7a97872f8605d77f2e4665b1b4c33f7e55896dc5e02c23d4",
+    "sensitivity/eu_excluded/robustness_runs.csv": "359a74734053d33395e68257edac9ed6e2b003b456be7a53c9fa80ce421039fd",
+    "sensitivity/eu_excluded/robustness_summary.csv": "0dbfd43605e9775c726cf5bcdc36711343d26095723a06312a71e23a5c3e79f8"
+  },
+  "primary": {
+    "country_policy": "nonempty_nonfocal",
+    "order_rows": 3317,
+    "run_rows": 651,
+    "runtime_seconds": 29.637136799748987,
+    "settings": {
+      "candidate_count": 107,
+      "component_engine": "scipy.sparse.csgraph.connected_components after each cumulative deletion",
+      "denominators": {
+        "external": 79433,
+        "focal": 1087,
+        "graph_nodes": 80966
+      },
+      "max_removed_providers": 20,
+      "quantile_method": "linear",
+      "random_band": "10th-90th percentile simulation spread; not a confidence interval",
+      "random_ordering": "random.Random(seed).shuffle on sorted baseline P; one permutation per trial",
+      "random_seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030
+      ],
+      "random_trials": 30,
+      "requested_max_removed_providers": 20,
+      "targeted_ordering": "focal_customer_count_desc, degree_desc, asn_asc; fixed at baseline"
+    },
+    "trial_runtimes": [
+      {
+        "seconds": 0.8319465001113713,
+        "seed": null,
+        "strategy": "targeted",
+        "trial": 0
+      },
+      {
+        "seconds": 0.8489381996914744,
+        "seed": 1001,
+        "strategy": "random",
+        "trial": 1
+      },
+      {
+        "seconds": 0.8449415001086891,
+        "seed": 1002,
+        "strategy": "random",
+        "trial": 2
+      },
+      {
+        "seconds": 0.8573251999914646,
+        "seed": 1003,
+        "strategy": "random",
+        "trial": 3
+      },
+      {
+        "seconds": 0.9036527001298964,
+        "seed": 1004,
+        "strategy": "random",
+        "trial": 4
+      },
+      {
+        "seconds": 0.8442771998234093,
+        "seed": 1005,
+        "strategy": "random",
+        "trial": 5
+      },
+      {
+        "seconds": 0.8433252000249922,
+        "seed": 1006,
+        "strategy": "random",
+        "trial": 6
+      },
+      {
+        "seconds": 0.8423803001642227,
+        "seed": 1007,
+        "strategy": "random",
+        "trial": 7
+      },
+      {
+        "seconds": 0.8489693999290466,
+        "seed": 1008,
+        "strategy": "random",
+        "trial": 8
+      },
+      {
+        "seconds": 0.8736024000681937,
+        "seed": 1009,
+        "strategy": "random",
+        "trial": 9
+      },
+      {
+        "seconds": 0.8767274999991059,
+        "seed": 1010,
+        "strategy": "random",
+        "trial": 10
+      },
+      {
+        "seconds": 1.3168421001173556,
+        "seed": 1011,
+        "strategy": "random",
+        "trial": 11
+      },
+      {
+        "seconds": 1.5664844000712037,
+        "seed": 1012,
+        "strategy": "random",
+        "trial": 12
+      },
+      {
+        "seconds": 1.4452663003467023,
+        "seed": 1013,
+        "strategy": "random",
+        "trial": 13
+      },
+      {
+        "seconds": 0.9611800001002848,
+        "seed": 1014,
+        "strategy": "random",
+        "trial": 14
+      },
+      {
+        "seconds": 0.9850091999396682,
+        "seed": 1015,
+        "strategy": "random",
+        "trial": 15
+      },
+      {
+        "seconds": 0.9128311001695693,
+        "seed": 1016,
+        "strategy": "random",
+        "trial": 16
+      },
+      {
+        "seconds": 0.8860438000410795,
+        "seed": 1017,
+        "strategy": "random",
+        "trial": 17
+      },
+      {
+        "seconds": 0.8661183002404869,
+        "seed": 1018,
+        "strategy": "random",
+        "trial": 18
+      },
+      {
+        "seconds": 0.8391801998950541,
+        "seed": 1019,
+        "strategy": "random",
+        "trial": 19
+      },
+      {
+        "seconds": 0.8653036998584867,
+        "seed": 1020,
+        "strategy": "random",
+        "trial": 20
+      },
+      {
+        "seconds": 0.8326037004590034,
+        "seed": 1021,
+        "strategy": "random",
+        "trial": 21
+      },
+      {
+        "seconds": 0.8478653999045491,
+        "seed": 1022,
+        "strategy": "random",
+        "trial": 22
+      },
+      {
+        "seconds": 0.8589210999198258,
+        "seed": 1023,
+        "strategy": "random",
+        "trial": 23
+      },
+      {
+        "seconds": 0.861820200458169,
+        "seed": 1024,
+        "strategy": "random",
+        "trial": 24
+      },
+      {
+        "seconds": 0.8761770999990404,
+        "seed": 1025,
+        "strategy": "random",
+        "trial": 25
+      },
+      {
+        "seconds": 0.8557246997952461,
+        "seed": 1026,
+        "strategy": "random",
+        "trial": 26
+      },
+      {
+        "seconds": 0.8868776997551322,
+        "seed": 1027,
+        "strategy": "random",
+        "trial": 27
+      },
+      {
+        "seconds": 0.8873742003925145,
+        "seed": 1028,
+        "strategy": "random",
+        "trial": 28
+      },
+      {
+        "seconds": 0.8765602000057697,
+        "seed": 1029,
+        "strategy": "random",
+        "trial": 29
+      },
+      {
+        "seconds": 0.8657506997697055,
+        "seed": 1030,
+        "strategy": "random",
+        "trial": 30
+      }
+    ]
+  },
+  "processed_input_hashes": {
+    "analysis_asns.csv": {
+      "actual_sha256": "9ecb1b6b5c1af3982e76e1277a24bc994aebdccc2fbceb9dbd31ad6f1d2c3954",
+      "contains_crlf": true,
+      "expected_sha256": "9ecb1b6b5c1af3982e76e1277a24bc994aebdccc2fbceb9dbd31ad6f1d2c3954",
+      "lf_sha256": "83d9135a0d8ef1f266d616bdd7cee81f5af898d15d5b2113d4379807d79cf6fa",
+      "match": "exact"
+    },
+    "edges.csv": {
+      "actual_sha256": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
+      "contains_crlf": true,
+      "expected_sha256": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
+      "lf_sha256": "7d5dfaf428ce087772440493fa92aad3c884d69b75ea6b553aa020209402db81",
+      "match": "exact"
+    },
+    "external_asns.csv": {
+      "actual_sha256": "de2efbf582ff44248f5767ef50053c4b41bd5ec8e3fe5036cdfd315f5588f39b",
+      "contains_crlf": true,
+      "expected_sha256": "de2efbf582ff44248f5767ef50053c4b41bd5ec8e3fe5036cdfd315f5588f39b",
+      "lf_sha256": "69bb8cf6ad9e5c27b4bffa89219edc147f4d0a4e1a2382d378d737b1cdec87aa",
+      "match": "exact"
+    },
+    "focal_asns.csv": {
+      "actual_sha256": "a7816c7060ef63fe1f7dfcdfdee17cb158f17309e4a97c64e4c8129aa1ecf488",
+      "contains_crlf": true,
+      "expected_sha256": "a7816c7060ef63fe1f7dfcdfdee17cb158f17309e4a97c64e4c8129aa1ecf488",
+      "lf_sha256": "b17b354a4284f15a21ec135f3d5f86676d78b489d9563c8c2b007db6fb58144a",
+      "match": "exact"
+    },
+    "nodes.csv": {
+      "actual_sha256": "46d8247b8461e183b39d5bc5ecba2c91ac2654b3a2d4fec122b7df7a2c15f111",
+      "contains_crlf": true,
+      "expected_sha256": "46d8247b8461e183b39d5bc5ecba2c91ac2654b3a2d4fec122b7df7a2c15f111",
+      "lf_sha256": "f4edf74a33244bedd9bddf1f098bdeec350023f54866eefb3fab0312a4853c5a",
+      "match": "exact"
+    },
+    "relationships.csv": {
+      "actual_sha256": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005",
+      "contains_crlf": true,
+      "expected_sha256": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005",
+      "lf_sha256": "e9fe137b59b859f8bb57d2fe8949977fa30ffaae8d8a040609d58314ce910744",
+      "match": "exact"
+    }
+  },
+  "runtime_seconds": 69.94556750031188,
+  "scope": "provider removals; main v1 scenario plus declared country sensitivity",
+  "sensitivity": {
+    "excluded_candidate_asns": [
+      1273
+    ],
+    "excluded_external_asns": [
+      249,
+      250,
+      764,
+      777,
+      1121,
+      1124,
+      1126,
+      1234,
+      1271,
+      1273,
+      1342,
+      1732,
+      1770,
+      1835,
+      1961,
+      2578,
+      6168,
+      19178
+    ],
+    "order_rows": 3286,
+    "policy": "exclude non-assigned country labels from E/P; preserve all transit nodes",
+    "run_rows": 651,
+    "runtime_seconds": 27.625407199840993,
+    "settings": {
+      "candidate_count": 106,
+      "component_engine": "scipy.sparse.csgraph.connected_components after each cumulative deletion",
+      "denominators": {
+        "external": 79415,
+        "focal": 1087,
+        "graph_nodes": 80966
+      },
+      "max_removed_providers": 20,
+      "quantile_method": "linear",
+      "random_band": "10th-90th percentile simulation spread; not a confidence interval",
+      "random_ordering": "random.Random(seed).shuffle on sorted baseline P; one permutation per trial",
+      "random_seeds": [
+        1001,
+        1002,
+        1003,
+        1004,
+        1005,
+        1006,
+        1007,
+        1008,
+        1009,
+        1010,
+        1011,
+        1012,
+        1013,
+        1014,
+        1015,
+        1016,
+        1017,
+        1018,
+        1019,
+        1020,
+        1021,
+        1022,
+        1023,
+        1024,
+        1025,
+        1026,
+        1027,
+        1028,
+        1029,
+        1030
+      ],
+      "random_trials": 30,
+      "requested_max_removed_providers": 20,
+      "targeted_ordering": "focal_customer_count_desc, degree_desc, asn_asc; fixed at baseline"
+    },
+    "trial_runtimes": [
+      {
+        "seconds": 0.8609152999706566,
+        "seed": null,
+        "strategy": "targeted",
+        "trial": 0
+      },
+      {
+        "seconds": 0.8902503997087479,
+        "seed": 1001,
+        "strategy": "random",
+        "trial": 1
+      },
+      {
+        "seconds": 0.854169299826026,
+        "seed": 1002,
+        "strategy": "random",
+        "trial": 2
+      },
+      {
+        "seconds": 0.8604712001979351,
+        "seed": 1003,
+        "strategy": "random",
+        "trial": 3
+      },
+      {
+        "seconds": 0.868017400149256,
+        "seed": 1004,
+        "strategy": "random",
+        "trial": 4
+      },
+      {
+        "seconds": 0.8929329998791218,
+        "seed": 1005,
+        "strategy": "random",
+        "trial": 5
+      },
+      {
+        "seconds": 0.8775006998330355,
+        "seed": 1006,
+        "strategy": "random",
+        "trial": 6
+      },
+      {
+        "seconds": 0.8821849999949336,
+        "seed": 1007,
+        "strategy": "random",
+        "trial": 7
+      },
+      {
+        "seconds": 0.8759206999093294,
+        "seed": 1008,
+        "strategy": "random",
+        "trial": 8
+      },
+      {
+        "seconds": 0.8956037000752985,
+        "seed": 1009,
+        "strategy": "random",
+        "trial": 9
+      },
+      {
+        "seconds": 0.8838321003131568,
+        "seed": 1010,
+        "strategy": "random",
+        "trial": 10
+      },
+      {
+        "seconds": 0.8701468999497592,
+        "seed": 1011,
+        "strategy": "random",
+        "trial": 11
+      },
+      {
+        "seconds": 0.8482367000542581,
+        "seed": 1012,
+        "strategy": "random",
+        "trial": 12
+      },
+      {
+        "seconds": 0.8848874997347593,
+        "seed": 1013,
+        "strategy": "random",
+        "trial": 13
+      },
+      {
+        "seconds": 0.8751839003525674,
+        "seed": 1014,
+        "strategy": "random",
+        "trial": 14
+      },
+      {
+        "seconds": 0.8808193998411298,
+        "seed": 1015,
+        "strategy": "random",
+        "trial": 15
+      },
+      {
+        "seconds": 0.830646799877286,
+        "seed": 1016,
+        "strategy": "random",
+        "trial": 16
+      },
+      {
+        "seconds": 0.8459549997933209,
+        "seed": 1017,
+        "strategy": "random",
+        "trial": 17
+      },
+      {
+        "seconds": 0.853908299934119,
+        "seed": 1018,
+        "strategy": "random",
+        "trial": 18
+      },
+      {
+        "seconds": 0.8469174997881055,
+        "seed": 1019,
+        "strategy": "random",
+        "trial": 19
+      },
+      {
+        "seconds": 0.8494199998676777,
+        "seed": 1020,
+        "strategy": "random",
+        "trial": 20
+      },
+      {
+        "seconds": 0.8925642999820411,
+        "seed": 1021,
+        "strategy": "random",
+        "trial": 21
+      },
+      {
+        "seconds": 0.8705295999534428,
+        "seed": 1022,
+        "strategy": "random",
+        "trial": 22
+      },
+      {
+        "seconds": 0.8717962000519037,
+        "seed": 1023,
+        "strategy": "random",
+        "trial": 23
+      },
+      {
+        "seconds": 0.8423458999022841,
+        "seed": 1024,
+        "strategy": "random",
+        "trial": 24
+      },
+      {
+        "seconds": 0.8150400002487004,
+        "seed": 1025,
+        "strategy": "random",
+        "trial": 25
+      },
+      {
+        "seconds": 0.8270367002114654,
+        "seed": 1026,
+        "strategy": "random",
+        "trial": 26
+      },
+      {
+        "seconds": 0.8376642996445298,
+        "seed": 1027,
+        "strategy": "random",
+        "trial": 27
+      },
+      {
+        "seconds": 0.841340399812907,
+        "seed": 1028,
+        "strategy": "random",
+        "trial": 28
+      },
+      {
+        "seconds": 0.8399501000531018,
+        "seed": 1029,
+        "strategy": "random",
+        "trial": 29
+      },
+      {
+        "seconds": 0.8280628998763859,
+        "seed": 1030,
+        "strategy": "random",
+        "trial": 30
+      }
+    ]
+  },
+  "source_commit": "3d0113fd67a00545eb8732d8402e6964e8f12cd2",
+  "source_hashes": {
+    "graph_loader.py": "08699fe40e69b5b57f0635e10198d038a38a12bca1bc7d4b7dabeb2dbb3c3758",
+    "robustness.py": "296990587b55017b83c67c9e9e85f3a0a8b49ee4d94c2acee92148dc0f465ccd",
+    "robustness_plots.py": "ad2825974d318202ff18fad9c98979cb3a12823a89244ea43cdce3705091406d",
+    "run_robustness.py": "6ec79d70a15386b08ad6b78502b66be240e02037746a5596e5bd9cd1662faaaf"
+  },
+  "status": "complete"
+}

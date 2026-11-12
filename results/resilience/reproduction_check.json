@@ -1,0 +1,47 @@
+{
+  "community_data_files": {
+    "community_assignments.csv": {
+      "fresh_sha256": "5981bde4dafe4bb80d67810d874c447adfbfa776fbe855173589e24915c1783d",
+      "reference_sha256": "5981bde4dafe4bb80d67810d874c447adfbfa776fbe855173589e24915c1783d"
+    },
+    "community_edges.csv": {
+      "fresh_sha256": "433a9fc44db85a1c3503b64ca42150533bd3645b85b48902cbd1c0371daec145",
+      "reference_sha256": "433a9fc44db85a1c3503b64ca42150533bd3645b85b48902cbd1c0371daec145"
+    },
+    "community_provider_membership.csv": {
+      "fresh_sha256": "2d0805d1e682329bb68478b90bef66b915d7cc4c5bcbc029913ebc615fe10374",
+      "reference_sha256": "2d0805d1e682329bb68478b90bef66b915d7cc4c5bcbc029913ebc615fe10374"
+    },
+    "community_summary.csv": {
+      "fresh_sha256": "30f183f2e1425c823d5682f3baedc083a24b4d8fb1922648926301a9cc0d10fc",
+      "reference_sha256": "30f183f2e1425c823d5682f3baedc083a24b4d8fb1922648926301a9cc0d10fc"
+    },
+    "seed_sensitivity.csv": {
+      "fresh_sha256": "52a7924db6594346c58fef9522863993357aaa2198aca249e3882c51038ee949",
+      "reference_sha256": "52a7924db6594346c58fef9522863993357aaa2198aca249e3882c51038ee949"
+    }
+  },
+  "community_score_fields_identical_excluding_runtime": true,
+  "comparison": "All eleven main/alternate/community data tables are byte-identical across environments; all community score fields match, excluding runtime.",
+  "environment_lock": "analysis/resilience/requirements.lock.txt",
+  "fresh_environment_sha256": {
+    "removal_order.csv": "cd75b5b732119c8aca6e7e837f016761138c271a1c6ee6a0ce0785de7a2ad061",
+    "robustness_runs.csv": "3ca6f37a2b41cbeefe7b02833ee5ce9dedef9399283a139cfcd9ff1f1cd538bf",
+    "robustness_summary.csv": "7bb814c5202d38b8478c0d0681ad11ea1aaade2306745ff743b004cb1ce5b21a",
+    "sensitivity/eu_excluded/removal_order.csv": "8e75a772b1dbb1df7a97872f8605d77f2e4665b1b4c33f7e55896dc5e02c23d4",
+    "sensitivity/eu_excluded/robustness_runs.csv": "359a74734053d33395e68257edac9ed6e2b003b456be7a53c9fa80ce421039fd",
+    "sensitivity/eu_excluded/robustness_summary.csv": "0dbfd43605e9775c726cf5bcdc36711343d26095723a06312a71e23a5c3e79f8"
+  },
+  "method": "Fresh CPython 3.12.10 virtual environment with independently installed pinned dependencies; reran the complete robustness workflow",
+  "reference_sha256": {
+    "removal_order.csv": "cd75b5b732119c8aca6e7e837f016761138c271a1c6ee6a0ce0785de7a2ad061",
+    "robustness_runs.csv": "3ca6f37a2b41cbeefe7b02833ee5ce9dedef9399283a139cfcd9ff1f1cd538bf",
+    "robustness_summary.csv": "7bb814c5202d38b8478c0d0681ad11ea1aaade2306745ff743b004cb1ce5b21a",
+    "sensitivity/eu_excluded/removal_order.csv": "8e75a772b1dbb1df7a97872f8605d77f2e4665b1b4c33f7e55896dc5e02c23d4",
+    "sensitivity/eu_excluded/robustness_runs.csv": "359a74734053d33395e68257edac9ed6e2b003b456be7a53c9fa80ce421039fd",
+    "sensitivity/eu_excluded/robustness_summary.csv": "0dbfd43605e9775c726cf5bcdc36711343d26095723a06312a71e23a5c3e79f8"
+  },
+  "status": "passed",
+  "test_evidence": "results/resilience/tests.junit.xml",
+  "tests_passed": 190
+}

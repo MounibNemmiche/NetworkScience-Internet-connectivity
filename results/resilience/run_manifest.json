@@ -1,0 +1,113 @@
+{
+  "baseline_fingerprint": "abfe3cfdfeae63524c7e5e755cd6e8992783f6108de23186c86de21af6316a80",
+  "community_assignment_rows": 242898,
+  "config_sha256": "b294e271e60fa5e1deb61e145e314de47371a08d1f9a0f10d35ccb6ce1300897",
+  "created_at_utc": "2026-11-12T22:19:19.525218+00:00",
+  "input_counts": {
+    "aggregated_relationships": 657444,
+    "candidate_providers": 107,
+    "connected_components": 1,
+    "excluded_focal_asns": 0,
+    "excluded_from_lcc": 0,
+    "external_asns": 79433,
+    "focal_asns_IT": 1087,
+    "global_topology_edges": 657444,
+    "global_topology_nodes": 80966,
+    "lcc_nodes": 80966,
+    "unique_undirected_edges": 657444,
+    "unknown_country_asns": 446
+  },
+  "input_warnings": [
+    {
+      "affected_candidate_providers": [
+        1273
+      ],
+      "asns_by_label": {
+        "EU": [
+          249,
+          250,
+          764,
+          777,
+          1121,
+          1124,
+          1126,
+          1234,
+          1271,
+          1273,
+          1342,
+          1732,
+          1770,
+          1835,
+          1961,
+          2578,
+          6168,
+          19178
+        ]
+      },
+      "code": "unresolved_country_labels",
+      "message": "Non-country labels are preserved in the supplied external set. Agree on their treatment and version any changed package before final robustness runs."
+    },
+    {
+      "code": "crlf_hash_portability",
+      "files": [
+        "nodes.csv",
+        "relationships.csv",
+        "edges.csv",
+        "analysis_asns.csv",
+        "focal_asns.csv",
+        "external_asns.csv"
+      ],
+      "message": "These CSVs use CRLF. Git newline conversion can change byte hashes; agree on a portable artifact policy before final shared runs."
+    }
+  ],
+  "output_hashes": {
+    "candidate_providers.csv": "f3d4078a9bbf2e26a39326f9e68f3f31e8592b829d230501bb8867a3a5b3cf29",
+    "community_assignments.csv": "5981bde4dafe4bb80d67810d874c447adfbfa776fbe855173589e24915c1783d",
+    "community_edges.csv": "433a9fc44db85a1c3503b64ca42150533bd3645b85b48902cbd1c0371daec145",
+    "community_findings.md": "4fab97b145666b9759b656e710ee0a15785f780d77d3f1d328efb59035d189d7",
+    "community_provider_membership.csv": "2d0805d1e682329bb68478b90bef66b915d7cc4c5bcbc029913ebc615fe10374",
+    "community_quality.csv": "d5ed41dfdd1e3b0c8ca12290a4433f26c28901e0132dcbd2a49a58d89b1b50fe",
+    "community_run_manifest.json": "5990b877a770a4bb28060a993f5d5f68641a30f5e662c5c037980405e5841a82",
+    "community_summary.csv": "30f183f2e1425c823d5682f3baedc083a24b4d8fb1922648926301a9cc0d10fc",
+    "figures/community_composition.pdf": "a8c71761e8a9d27f0cab21014ba501fc852b461819f1c93f0f3321c147ec6c12",
+    "figures/community_composition.png": "a7cd2466a37b5572fbd3349b3e2d30f71a1872841d54366860783b720c7b8f64",
+    "figures/community_connectivity.pdf": "f538de03f417cec941133e8951621a5d1779e823fb1ff8d9cc5f565e9d815d35",
+    "figures/community_connectivity.png": "83989ffe9c60016de3ac64bbcd515f516f15917d0055a2454ef0c61a007ff93a",
+    "figures/community_sizes.pdf": "c92d59989efe1ffbc84c86512dffa2c2df9fba60cb9df64412f1122302635d29",
+    "figures/community_sizes.png": "6fc87a3f1db0b6e87ffe9e663af96daf5e19387eeb873d8fa994eb3cc69f3a6f",
+    "figures/robustness_focal_external_fraction.pdf": "2abea1400ec3eccd16b5d4749c957c7f1a6901228a8c5abbfb6df75424386cbf",
+    "figures/robustness_focal_external_fraction.png": "763feea61e51f088669d0f27fef18841a38277dd6d3eeb784146b67838cf9908",
+    "figures/robustness_focal_external_pair_fraction.pdf": "97ad7f583bd62ef52ee5b768a20212503d5f21dbb43984ca3b9a704879b7c7be",
+    "figures/robustness_focal_external_pair_fraction.png": "a49142963413e90ca0d449f62e8bf262e23bb4e01a344a669be59cc44c07b629",
+    "figures/robustness_largest_component_fraction.pdf": "1ddb802418602f3a4c0c1942e8b6086334dfdca45788ca22c349ceb7e251bd19",
+    "figures/robustness_largest_component_fraction.png": "5a6a1741a30408491918d204bbc4224b2458e78e42ce3f6ac85dbad220d59214",
+    "figures/robustness_loss_overview.pdf": "e38b52600a32634c99cf3cf1d421f803ace6c4718c8b0ca4d8c293766a8475dc",
+    "figures/robustness_loss_overview.png": "e87f7036684f76658ae78485481114b1a4d9cc35e62ed539240593b085b36064",
+    "findings.md": "3da241ec4ce1d4682e67e5f881250e84bed5367cecbffca988cd41e0dc18644f",
+    "graph_validation.json": "d67ff2340ed31484b443dace2216be7d1aedce59f93f0c33498a333678f21899",
+    "graph_validation.md": "ca50e25b545c4784b571cd0e72a8e0627ac53c383fc7d942d899c2b78f897c3f",
+    "input_contract.json": "3f78aa77b7859595a4e58104553ed7e4fc318801be6fcaff9ea99edc5bbbb64a",
+    "removal_order.csv": "cd75b5b732119c8aca6e7e837f016761138c271a1c6ee6a0ce0785de7a2ad061",
+    "robustness_findings.md": "2a2c9855622dfdb5b78457d53bcd843071fb5d21bd04b40d0d7b42dbe454efae",
+    "robustness_run_manifest.json": "f225295b82046772791332dd471aa7181ec12673643dfb9934c86b18df28b202",
+    "robustness_runs.csv": "3ca6f37a2b41cbeefe7b02833ee5ce9dedef9399283a139cfcd9ff1f1cd538bf",
+    "robustness_summary.csv": "7bb814c5202d38b8478c0d0681ad11ea1aaade2306745ff743b004cb1ce5b21a",
+    "seed_sensitivity.csv": "52a7924db6594346c58fef9522863993357aaa2198aca249e3882c51038ee949",
+    "sensitivity/eu_excluded/removal_order.csv": "8e75a772b1dbb1df7a97872f8605d77f2e4665b1b4c33f7e55896dc5e02c23d4",
+    "sensitivity/eu_excluded/robustness_runs.csv": "359a74734053d33395e68257edac9ed6e2b003b456be7a53c9fa80ce421039fd",
+    "sensitivity/eu_excluded/robustness_summary.csv": "0dbfd43605e9775c726cf5bcdc36711343d26095723a06312a71e23a5c3e79f8"
+  },
+  "primary_robustness_rows": 651,
+  "requires_shared_signoff": true,
+  "selected_louvain_seed": 22,
+  "sensitivity_robustness_rows": 651,
+  "source_commit": "3d0113fd67a00545eb8732d8402e6964e8f12cd2",
+  "source_hashes": {
+    "run_resilience.py": "595c5e1b7ea13bdf4137b5825686aa90ec469994d71ba81fe57cabf4eab00af8"
+  },
+  "status": "complete_for_recorded_v1_scenario",
+  "subrun_manifests": {
+    "community_run_manifest.json": "5990b877a770a4bb28060a993f5d5f68641a30f5e662c5c037980405e5841a82",
+    "robustness_run_manifest.json": "f225295b82046772791332dd471aa7181ec12673643dfb9934c86b18df28b202"
+  }
+}

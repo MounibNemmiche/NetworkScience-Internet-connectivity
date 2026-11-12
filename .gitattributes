@@ -1,0 +1,7 @@
+# Source and result hashes use exact bytes. Keep these artifacts unchanged
+# across checkouts with different core.autocrlf settings.
+/analysis/resilience/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/results/resilience/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+/README.md text eol=lf
+/.gitignore text eol=lf
+/.gitattributes text eol=lf

@@ -1,0 +1,89 @@
+{
+  "combined_manifest_sha256": "2674b7ca067e0e97370828d44203acd731b3b042f456424fad32863198aa88ea",
+  "community_assignment_rows": 242898,
+  "community_seeds": [
+    11,
+    22,
+    33
+  ],
+  "created_at_utc": "2026-11-12T22:20:38.263525+00:00",
+  "primary": {
+    "independent_component_samples": [
+      {
+        "k": 5,
+        "strategy": "random",
+        "trial": 1
+      },
+      {
+        "k": 20,
+        "strategy": "random",
+        "trial": 1
+      },
+      {
+        "k": 20,
+        "strategy": "random",
+        "trial": 30
+      },
+      {
+        "k": 1,
+        "strategy": "targeted",
+        "trial": 0
+      },
+      {
+        "k": 10,
+        "strategy": "targeted",
+        "trial": 0
+      },
+      {
+        "k": 20,
+        "strategy": "targeted",
+        "trial": 0
+      }
+    ],
+    "metric_rows": 651,
+    "order_rows": 3317,
+    "summary_rows": 63
+  },
+  "scope": "All exported hashes, orders, denominators, monotonicity and quantile bindings; NetworkX modularity and quotient reconstruction; listed independent component samples.",
+  "selected_seed": 22,
+  "sensitivity": {
+    "independent_component_samples": [
+      {
+        "k": 5,
+        "strategy": "random",
+        "trial": 1
+      },
+      {
+        "k": 20,
+        "strategy": "random",
+        "trial": 1
+      },
+      {
+        "k": 20,
+        "strategy": "random",
+        "trial": 30
+      },
+      {
+        "k": 1,
+        "strategy": "targeted",
+        "trial": 0
+      },
+      {
+        "k": 10,
+        "strategy": "targeted",
+        "trial": 0
+      },
+      {
+        "k": 20,
+        "strategy": "targeted",
+        "trial": 0
+      }
+    ],
+    "metric_rows": 651,
+    "order_rows": 3286,
+    "summary_rows": 63
+  },
+  "status": "passed",
+  "tests_passed": 192,
+  "verifier_sha256": "79eba09c8f34fb80fb70369c6d71f33cbb1e131f3d30f33c0ec332b4531db337"
+}

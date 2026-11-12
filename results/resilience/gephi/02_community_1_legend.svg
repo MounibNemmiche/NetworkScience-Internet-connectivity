@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="158" viewBox="0 0 240 158">
+<rect x="0" y="0" width="240" height="158" fill="#ffffff"/>
+<text x="12" y="24" font-size="12" font-weight="bold" font-family="Helvetica,Arial,sans-serif" fill="#222222">log_degree  (node size)</text>
+<circle cx="17" cy="41" r="4" fill="#bbbbbb" stroke="#00000033"/>
+<circle cx="46" cy="41" r="9" fill="#bbbbbb" stroke="#00000033"/>
+<text x="62" y="45" font-size="11" font-weight="normal" font-family="Helvetica,Arial,sans-serif" fill="#222222">10.0 to 80.0</text>
+<text x="12" y="76" font-size="12" font-weight="bold" font-family="Helvetica,Arial,sans-serif" fill="#222222">role  (node colour)</text>
+<rect x="12" y="86" width="12" height="12" rx="2" fill="#bbc1c6" stroke="#00000022"/>
+<text x="32" y="96" font-size="11" font-weight="normal" font-family="Helvetica,Arial,sans-serif" fill="#222222">Other AS</text>
+<rect x="12" y="106" width="12" height="12" rx="2" fill="#2d759f" stroke="#00000022"/>
+<text x="32" y="116" font-size="11" font-weight="normal" font-family="Helvetica,Arial,sans-serif" fill="#222222">Italian AS</text>
+<rect x="12" y="126" width="12" height="12" rx="2" fill="#da6c2e" stroke="#00000022"/>
+<text x="32" y="136" font-size="11" font-weight="normal" font-family="Helvetica,Arial,sans-serif" fill="#222222">Candidate provider</text>
+</svg>

@@ -1,0 +1,154 @@
+{
+  "baseline_fingerprint": "abfe3cfdfeae63524c7e5e755cd6e8992783f6108de23186c86de21af6316a80",
+  "checks": [
+    "CSV schema and types",
+    "manifest hashes and declared derived counts",
+    "unique nodes and ASN sets",
+    "canonical nonduplicate nonloop edges",
+    "endpoint coverage",
+    "largest component and tie-break",
+    "focal/external country membership",
+    "relationship/topology consistency",
+    "distinct direct provider customers",
+    "stable baseline ordering"
+  ],
+  "config_sha256": "b294e271e60fa5e1deb61e145e314de47371a08d1f9a0f10d35ccb6ce1300897",
+  "country_policy": "nonempty_nonfocal",
+  "counts": {
+    "aggregated_relationships": 657444,
+    "candidate_providers": 107,
+    "connected_components": 1,
+    "excluded_focal_asns": 0,
+    "excluded_from_lcc": 0,
+    "external_asns": 79433,
+    "focal_asns_IT": 1087,
+    "global_topology_edges": 657444,
+    "global_topology_nodes": 80966,
+    "lcc_nodes": 80966,
+    "unique_undirected_edges": 657444,
+    "unknown_country_asns": 446
+  },
+  "created_at_utc": "2026-11-12T22:19:19.097969+00:00",
+  "environment": {
+    "networkx": "3.6.1",
+    "python": "3.12.10"
+  },
+  "excluded_focal_asns": [],
+  "final_robustness_note": "Loading/validation does not certify that both students have agreed and frozen the country and artifact policies. Resolve those before final runs.",
+  "focal_country": "IT",
+  "hash_policy": "newline-compatible",
+  "loader_sha256": "08699fe40e69b5b57f0635e10198d038a38a12bca1bc7d4b7dabeb2dbb3c3758",
+  "manifest_sha256": "5354bcc7336d3d053f921896cc75ac5d6ee43f574cbfd1de3e772031b2cb875c",
+  "metadata_missing_global": 446,
+  "package_directory": "data/processed/v1",
+  "package_directory_scope": "repository-relative",
+  "processed_hashes": {
+    "analysis_asns.csv": {
+      "actual_sha256": "9ecb1b6b5c1af3982e76e1277a24bc994aebdccc2fbceb9dbd31ad6f1d2c3954",
+      "contains_crlf": true,
+      "expected_sha256": "9ecb1b6b5c1af3982e76e1277a24bc994aebdccc2fbceb9dbd31ad6f1d2c3954",
+      "lf_sha256": "83d9135a0d8ef1f266d616bdd7cee81f5af898d15d5b2113d4379807d79cf6fa",
+      "match": "exact"
+    },
+    "edges.csv": {
+      "actual_sha256": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
+      "contains_crlf": true,
+      "expected_sha256": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
+      "lf_sha256": "7d5dfaf428ce087772440493fa92aad3c884d69b75ea6b553aa020209402db81",
+      "match": "exact"
+    },
+    "external_asns.csv": {
+      "actual_sha256": "de2efbf582ff44248f5767ef50053c4b41bd5ec8e3fe5036cdfd315f5588f39b",
+      "contains_crlf": true,
+      "expected_sha256": "de2efbf582ff44248f5767ef50053c4b41bd5ec8e3fe5036cdfd315f5588f39b",
+      "lf_sha256": "69bb8cf6ad9e5c27b4bffa89219edc147f4d0a4e1a2382d378d737b1cdec87aa",
+      "match": "exact"
+    },
+    "focal_asns.csv": {
+      "actual_sha256": "a7816c7060ef63fe1f7dfcdfdee17cb158f17309e4a97c64e4c8129aa1ecf488",
+      "contains_crlf": true,
+      "expected_sha256": "a7816c7060ef63fe1f7dfcdfdee17cb158f17309e4a97c64e4c8129aa1ecf488",
+      "lf_sha256": "b17b354a4284f15a21ec135f3d5f86676d78b489d9563c8c2b007db6fb58144a",
+      "match": "exact"
+    },
+    "nodes.csv": {
+      "actual_sha256": "46d8247b8461e183b39d5bc5ecba2c91ac2654b3a2d4fec122b7df7a2c15f111",
+      "contains_crlf": true,
+      "expected_sha256": "46d8247b8461e183b39d5bc5ecba2c91ac2654b3a2d4fec122b7df7a2c15f111",
+      "lf_sha256": "f4edf74a33244bedd9bddf1f098bdeec350023f54866eefb3fab0312a4853c5a",
+      "match": "exact"
+    },
+    "relationships.csv": {
+      "actual_sha256": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005",
+      "contains_crlf": true,
+      "expected_sha256": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005",
+      "lf_sha256": "e9fe137b59b859f8bb57d2fe8949977fa30ffaae8d8a040609d58314ce910744",
+      "match": "exact"
+    }
+  },
+  "raw_hashes": {
+    "20261001.as-org2info.txt.gz": {
+      "actual_sha256": "e010e11531e097d02cef583f666f578e7723ec5db58b1c8cb43d4c8e6f416c0d",
+      "status": "exact"
+    },
+    "20261001.as-rel2.txt.bz2": {
+      "actual_sha256": "8810a457ebdffd85c7e86782a8a76e85a86d623bd52bc52e622a3c4ad5c0d521",
+      "status": "exact"
+    }
+  },
+  "ready_for_community_analysis": true,
+  "ready_for_final_robustness": false,
+  "relationship_type_counts": {
+    "peer": 489174,
+    "provider_to_customer": 168270
+  },
+  "runtime_seconds": 10.571,
+  "schema_version": "1.0",
+  "scope": "Processed-package validation; raw hashes are checked when files are available. Raw relationship direction and organization joins are not re-audited here.",
+  "snapshot": "20261001",
+  "source_commit": "3d0113fd67a00545eb8732d8402e6964e8f12cd2",
+  "status": "passed_with_warnings",
+  "warnings": [
+    {
+      "affected_candidate_providers": [
+        1273
+      ],
+      "asns_by_label": {
+        "EU": [
+          249,
+          250,
+          764,
+          777,
+          1121,
+          1124,
+          1126,
+          1234,
+          1271,
+          1273,
+          1342,
+          1732,
+          1770,
+          1835,
+          1961,
+          2578,
+          6168,
+          19178
+        ]
+      },
+      "code": "unresolved_country_labels",
+      "message": "Non-country labels are preserved in the supplied external set. Agree on their treatment and version any changed package before final robustness runs."
+    },
+    {
+      "code": "crlf_hash_portability",
+      "files": [
+        "nodes.csv",
+        "relationships.csv",
+        "edges.csv",
+        "analysis_asns.csv",
+        "focal_asns.csv",
+        "external_asns.csv"
+      ],
+      "message": "These CSVs use CRLF. Git newline conversion can change byte hashes; agree on a portable artifact policy before final shared runs."
+    }
+  ]
+}

@@ -1,0 +1,808 @@
+{
+  "absolute_and_relative_tolerance": 1e-10,
+  "created_at_utc": "2026-11-12T17:21:30.112778+00:00",
+  "environment": {
+    "networkx": "3.6.1",
+    "numpy": "2.4.3",
+    "python": "3.12.10",
+    "scipy": "1.15.2"
+  },
+  "real_graph_check": {
+    "baseline_fingerprint": "abfe3cfdfeae63524c7e5e755cd6e8992783f6108de23186c86de21af6316a80",
+    "config_sha256": "b294e271e60fa5e1deb61e145e314de47371a08d1f9a0f10d35ccb6ce1300897",
+    "independent_node_entropy_bits": 13.813940201995347,
+    "input_warnings": [
+      {
+        "affected_candidate_providers": [
+          1273
+        ],
+        "asns_by_label": {
+          "EU": [
+            249,
+            250,
+            764,
+            777,
+            1121,
+            1124,
+            1126,
+            1234,
+            1271,
+            1273,
+            1342,
+            1732,
+            1770,
+            1835,
+            1961,
+            2578,
+            6168,
+            19178
+          ]
+        },
+        "code": "unresolved_country_labels",
+        "message": "Non-country labels are preserved in the supplied external set. Agree on their treatment and version any changed package before final robustness runs."
+      },
+      {
+        "code": "crlf_hash_portability",
+        "files": [
+          "nodes.csv",
+          "relationships.csv",
+          "edges.csv",
+          "analysis_asns.csv",
+          "focal_asns.csv",
+          "external_asns.csv"
+        ],
+        "message": "These CSVs use CRLF. Git newline conversion can change byte hashes; agree on a portable artifact policy before final shared runs."
+      }
+    ],
+    "manifest_sha256": "5354bcc7336d3d053f921896cc75ac5d6ee43f574cbfd1de3e772031b2cb875c",
+    "observed": {
+      "community_count": 1,
+      "community_degree_volumes": [
+        1314888
+      ],
+      "community_entropy_bits": -0.0,
+      "community_exit_rates": [
+        0.0
+      ],
+      "community_node_counts": [
+        80966
+      ],
+      "community_visit_probabilities": [
+        0.999999999999985
+      ],
+      "conventions": {
+        "infomap_definition": "two-level map equation of this supplied partition",
+        "infomap_unit": "bits per random-walk step",
+        "log_base": 2,
+        "modularity_resolution": 1.0,
+        "nmi_definition": "edge-end community mutual information / community entropy",
+        "normalized_cut_aggregation": "sum",
+        "weighted": false
+      },
+      "course_nmi": null,
+      "edge_count": 657444,
+      "infomap_bits": 13.813940201995326,
+      "modularity": 0.0,
+      "mutual_information_bits": 0.0,
+      "node_count": 80966,
+      "normalized_cut": 0.0,
+      "undefined_reasons": {
+        "course_nmi": "Community entropy is zero."
+      },
+      "walk": {
+        "damping": 0.85,
+        "dangling_redistribution": "uniform",
+        "iterations": 112,
+        "l1_error_bound": 4.586749630417852e-12,
+        "l1_residual": 6.880124445626779e-13,
+        "max_iter": 10000,
+        "probability_sum": 1.0,
+        "residual_tolerance": 1e-12,
+        "teleportation": "uniform",
+        "teleportation_recorded": true
+      }
+    },
+    "partition": "all nodes in one fixed community; no Louvain run",
+    "source_commit": "3d0113fd67a00545eb8732d8402e6964e8f12cd2",
+    "status": "passed"
+  },
+  "runtime_seconds": 17.568,
+  "source_hashes": {
+    "community_metrics.py": "6beb464ad09177228698a1fe4869e7f83f51862dc10e70f6b9e4bc24bc776b32",
+    "verify_community_metrics.py": "ad1168adf1855a513ce550b55205ce9a5f905696be298002a5b985a4f954f812"
+  },
+  "status": "passed",
+  "tiny_cases": [
+    {
+      "case": "path4_paired",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": {
+        "course_nmi": 0.08170416594551039,
+        "infomap_bits": 2.4020292159603818,
+        "modularity": 0.16666666666666666,
+        "normalized_cut": 0.6666666666666666
+      },
+      "manual_calculation": "r=(10/57,37/114,37/114,10/57); q_i=10/57; L=20/57+(77/57)H(20/77,20/77,37/77)",
+      "networkx_modularity": 0.16666666666666663,
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed": {
+        "community_count": 2,
+        "community_degree_volumes": [
+          3,
+          3
+        ],
+        "community_entropy_bits": 1.0,
+        "community_exit_rates": [
+          0.17543859649124538,
+          0.17543859649124538
+        ],
+        "community_node_counts": [
+          2,
+          2
+        ],
+        "community_visit_probabilities": [
+          0.5,
+          0.5
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": 0.08170416594551044,
+        "edge_count": 3,
+        "infomap_bits": 2.4020292159604115,
+        "modularity": 0.16666666666666663,
+        "mutual_information_bits": 0.08170416594551044,
+        "node_count": 4,
+        "normalized_cut": 0.6666666666666666,
+        "undefined_reasons": {},
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 33,
+          "l1_error_bound": 1.5469107476443846e-12,
+          "l1_residual": 2.320366121466577e-13,
+          "max_iter": 10000,
+          "probability_sum": 1.0,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.17543859649118737,
+        "1": 0.32456140350881263,
+        "2": 0.32456140350881263,
+        "3": 0.17543859649118737
+      },
+      "status": "passed"
+    },
+    {
+      "case": "cycle4_adjacent",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": {
+        "course_nmi": 0.0,
+        "infomap_bits": 2.877443751081734,
+        "modularity": 0.0,
+        "normalized_cut": 1.0
+      },
+      "manual_calculation": "r_u=1/4; q_i=1/4; L=1/2+(3/2)log2(3)",
+      "networkx_modularity": 0.0,
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed": {
+        "community_count": 2,
+        "community_degree_volumes": [
+          4,
+          4
+        ],
+        "community_entropy_bits": 1.0,
+        "community_exit_rates": [
+          0.25,
+          0.25
+        ],
+        "community_node_counts": [
+          2,
+          2
+        ],
+        "community_visit_probabilities": [
+          0.5,
+          0.5
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": 0.0,
+        "edge_count": 4,
+        "infomap_bits": 2.877443751081734,
+        "modularity": 0.0,
+        "mutual_information_bits": 0.0,
+        "node_count": 4,
+        "normalized_cut": 1.0,
+        "undefined_reasons": {},
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 1,
+          "l1_error_bound": 0.0,
+          "l1_residual": 0.0,
+          "max_iter": 10000,
+          "probability_sum": 1.0,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25
+      },
+      "status": "passed"
+    },
+    {
+      "case": "cycle4_alternating",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": {
+        "course_nmi": 1.0,
+        "infomap_bits": 3.8478916327435444,
+        "modularity": -0.5,
+        "normalized_cut": 2.0
+      },
+      "manual_calculation": "r_u=1/4; q_i=37/80; L=37/40+(77/40)H(37/77,20/77,20/77)",
+      "networkx_modularity": -0.5,
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed": {
+        "community_count": 2,
+        "community_degree_volumes": [
+          4,
+          4
+        ],
+        "community_entropy_bits": 1.0,
+        "community_exit_rates": [
+          0.4625,
+          0.4625
+        ],
+        "community_node_counts": [
+          2,
+          2
+        ],
+        "community_visit_probabilities": [
+          0.5,
+          0.5
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": 1.0,
+        "edge_count": 4,
+        "infomap_bits": 3.8478916327435444,
+        "modularity": -0.5,
+        "mutual_information_bits": 1.0,
+        "node_count": 4,
+        "normalized_cut": 2.0,
+        "undefined_reasons": {},
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 1,
+          "l1_error_bound": 0.0,
+          "l1_residual": 0.0,
+          "max_iter": 10000,
+          "probability_sum": 1.0,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25
+      },
+      "status": "passed"
+    },
+    {
+      "case": "cycle4_one_community",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": {
+        "course_nmi": null,
+        "infomap_bits": 2.0,
+        "modularity": 0.0,
+        "normalized_cut": 0.0
+      },
+      "manual_calculation": "H(community)=0, so NMI undefined; q=0; L=H(r)=2",
+      "networkx_modularity": 0.0,
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed": {
+        "community_count": 1,
+        "community_degree_volumes": [
+          8
+        ],
+        "community_entropy_bits": -0.0,
+        "community_exit_rates": [
+          0.0
+        ],
+        "community_node_counts": [
+          4
+        ],
+        "community_visit_probabilities": [
+          1.0
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": null,
+        "edge_count": 4,
+        "infomap_bits": 2.0,
+        "modularity": 0.0,
+        "mutual_information_bits": 0.0,
+        "node_count": 4,
+        "normalized_cut": 0.0,
+        "undefined_reasons": {
+          "course_nmi": "Community entropy is zero."
+        },
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 1,
+          "l1_error_bound": 0.0,
+          "l1_residual": 0.0,
+          "max_iter": 10000,
+          "probability_sum": 1.0,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0,
+          1,
+          2,
+          3
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25
+      },
+      "status": "passed"
+    },
+    {
+      "case": "cycle4_singletons",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": {
+        "course_nmi": 0.5,
+        "infomap_bits": 3.886983079393613,
+        "modularity": -0.25,
+        "normalized_cut": 4.0
+      },
+      "manual_calculation": "r_u=1/4; q_i=77/320; L=(77/80)*2+(157/80)H(77/157,80/157)",
+      "networkx_modularity": -0.25,
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed": {
+        "community_count": 4,
+        "community_degree_volumes": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "community_entropy_bits": 2.0,
+        "community_exit_rates": [
+          0.240625,
+          0.240625,
+          0.240625,
+          0.240625
+        ],
+        "community_node_counts": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "community_visit_probabilities": [
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": 0.5,
+        "edge_count": 4,
+        "infomap_bits": 3.8869830793936138,
+        "modularity": -0.25,
+        "mutual_information_bits": 1.0,
+        "node_count": 4,
+        "normalized_cut": 4.0,
+        "undefined_reasons": {},
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 1,
+          "l1_error_bound": 0.0,
+          "l1_residual": 0.0,
+          "max_iter": 10000,
+          "probability_sum": 1.0,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2
+        ],
+        [
+          3
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25
+      },
+      "status": "passed"
+    },
+    {
+      "case": "disconnected_edges",
+      "edges": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "expected": {
+        "course_nmi": 1.0,
+        "infomap_bits": 1.467434328863306,
+        "modularity": 0.5,
+        "normalized_cut": 0.0
+      },
+      "manual_calculation": "No crossing edges; recorded teleport gives q_i=3/80; L=3/40+(43/40)H(3/43,20/43,20/43)",
+      "networkx_modularity": 0.5,
+      "nodes": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "observed": {
+        "community_count": 2,
+        "community_degree_volumes": [
+          2,
+          2
+        ],
+        "community_entropy_bits": 1.0,
+        "community_exit_rates": [
+          0.037500000000000006,
+          0.037500000000000006
+        ],
+        "community_node_counts": [
+          2,
+          2
+        ],
+        "community_visit_probabilities": [
+          0.5,
+          0.5
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": 1.0,
+        "edge_count": 2,
+        "infomap_bits": 1.4674343288633063,
+        "modularity": 0.5,
+        "mutual_information_bits": 1.0,
+        "node_count": 4,
+        "normalized_cut": 0.0,
+        "undefined_reasons": {},
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 1,
+          "l1_error_bound": 0.0,
+          "l1_residual": 0.0,
+          "max_iter": 10000,
+          "probability_sum": 1.0,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.25,
+        "1": 0.25,
+        "2": 0.25,
+        "3": 0.25
+      },
+      "status": "passed"
+    },
+    {
+      "case": "edge_and_isolate",
+      "edges": [
+        [
+          0,
+          1
+        ]
+      ],
+      "expected": {
+        "course_nmi": null,
+        "infomap_bits": 1.4059293240345765,
+        "modularity": 0.0,
+        "normalized_cut": null
+      },
+      "manual_calculation": "Uniform dangling redistribution: r=(20/43,20/43,3/43); q_i=2/43; zero edge-volume community makes Ncut undefined",
+      "networkx_modularity": 0.0,
+      "nodes": [
+        0,
+        1,
+        2
+      ],
+      "observed": {
+        "community_count": 2,
+        "community_degree_volumes": [
+          2,
+          0
+        ],
+        "community_entropy_bits": -0.0,
+        "community_exit_rates": [
+          0.04651162790697342,
+          0.04651162790702117
+        ],
+        "community_node_counts": [
+          2,
+          1
+        ],
+        "community_visit_probabilities": [
+          0.9302325581394681,
+          0.06976744186053176
+        ],
+        "conventions": {
+          "infomap_definition": "two-level map equation of this supplied partition",
+          "infomap_unit": "bits per random-walk step",
+          "log_base": 2,
+          "modularity_resolution": 1.0,
+          "nmi_definition": "edge-end community mutual information / community entropy",
+          "normalized_cut_aggregation": "sum",
+          "weighted": false
+        },
+        "course_nmi": null,
+        "edge_count": 1,
+        "infomap_bits": 1.405929324034639,
+        "modularity": 0.0,
+        "mutual_information_bits": 0.0,
+        "node_count": 3,
+        "normalized_cut": null,
+        "undefined_reasons": {
+          "course_nmi": "Community entropy is zero.",
+          "normalized_cut": "At least one community has zero degree volume."
+        },
+        "walk": {
+          "damping": 0.85,
+          "dangling_redistribution": "uniform",
+          "iterations": 23,
+          "l1_error_bound": 6.366203860371418e-13,
+          "l1_residual": 9.549305790557128e-14,
+          "max_iter": 10000,
+          "probability_sum": 0.9999999999999999,
+          "residual_tolerance": 1e-12,
+          "teleportation": "uniform",
+          "teleportation_recorded": true
+        }
+      },
+      "partition": [
+        [
+          0,
+          1
+        ],
+        [
+          2
+        ]
+      ],
+      "stationary_probabilities": {
+        "0": 0.4651162790697341,
+        "1": 0.4651162790697341,
+        "2": 0.06976744186053176
+      },
+      "status": "passed"
+    }
+  ]
+}
