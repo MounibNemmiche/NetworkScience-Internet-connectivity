@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-11-12T08:38:00.446322+00:00",
+  "runtime_seconds": 8.75,
+  "snapshot": "20261001",
+  "focal_country": "IT",
+  "data_sources": {
+    "relationships": {
+      "url": "https://publicdata.caida.org/datasets/as-relationships/serial-2/20261001.as-rel2.txt.bz2",
+      "filename": "20261001.as-rel2.txt.bz2",
+      "sha256": "8810a457ebdffd85c7e86782a8a76e85a86d623bd52bc52e622a3c4ad5c0d521"
+    },
+    "organizations": {
+      "url": "https://publicdata.caida.org/datasets/as-organizations/20261001.as-org2info.txt.gz",
+      "filename": "20261001.as-org2info.txt.gz",
+      "sha256": "e010e11531e097d02cef583f666f578e7723ec5db58b1c8cb43d4c8e6f416c0d"
+    }
+  },
+  "raw_file_hashes": {
+    "20261001.as-rel2.txt.bz2": "8810a457ebdffd85c7e86782a8a76e85a86d623bd52bc52e622a3c4ad5c0d521",
+    "20261001.as-org2info.txt.gz": "e010e11531e097d02cef583f666f578e7723ec5db58b1c8cb43d4c8e6f416c0d"
+  },
+  "processed_file_hashes": {
+    "nodes.csv": "46d8247b8461e183b39d5bc5ecba2c91ac2654b3a2d4fec122b7df7a2c15f111",
+    "relationships.csv": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005",
+    "edges.csv": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
+    "analysis_asns.csv": "9ecb1b6b5c1af3982e76e1277a24bc994aebdccc2fbceb9dbd31ad6f1d2c3954",
+    "focal_asns.csv": "a7816c7060ef63fe1f7dfcdfdee17cb158f17309e4a97c64e4c8129aa1ecf488",
+    "external_asns.csv": "de2efbf582ff44248f5767ef50053c4b41bd5ec8e3fe5036cdfd315f5588f39b"
+  },
+  "counts": {
+    "organizations_parsed": 98447,
+    "as_to_org_mappings": 122668,
+    "raw_relationship_records": 657444,
+    "aggregated_relationships": 657444,
+    "unique_undirected_edges": 657444,
+    "self_loops_removed": 0,
+    "duplicate_pairs_merged": 0,
+    "global_topology_nodes": 80966,
+    "global_topology_edges": 657444,
+    "connected_components": 1,
+    "lcc_nodes": 80966,
+    "focal_asns_IT": 1087,
+    "external_asns": 79433,
+    "unknown_country_asns": 446,
+    "excluded_from_lcc": 0,
+    "excluded_focal_asns": 0,
+    "candidate_providers": 107,
+    "input_clique_ases": 18,
+    "ixp_ases": 28
+  },
+  "relationship_type_counts": {
+    "provider_to_customer": 168270,
+    "peer": 489174
+  },
+  "excluded_focal_asns_list": [],
+  "input_clique": [
+    174,
+    209,
+    286,
+    701,
+    1299,
+    2828,
+    2914,
+    3257,
+    3320,
+    3356,
+    3491,
+    5511,
+    6453,
+    6461,
+    6762,
+    6830,
+    7018,
+    12956
+  ],
+  "ixp_ases": [
+    1200,
+    4635,
+    5507,
+    6695,
+    7606,
+    8714,
+    9355,
+    9439,
+    9560,
+    9722,
+    9989,
+    11670,
+    15645,
+    17819,
+    18398,
+    21371,
+    24029,
+    24115,
+    24990,
+    35054,
+    40633,
+    42476,
+    43100,
+    47886,
+    48850,
+    50384,
+    55818,
+    57463
+  ],
+  "cleaning_decisions": [
+    "Self-loops removed from edge list",
+    "Duplicate undirected pairs merged; relationship aggregation preserves all source labels",
+    "Peer links canonically ordered (smaller ASN first)",
+    "Provider-to-customer direction preserved as in raw data: source_asn = provider",
+    "Unknown/empty country codes left as empty string, not assigned to focal or external",
+    "Only ASes appearing as relationship endpoints included in global topology (no isolated registry ASes added)",
+    "IXP ASes and input clique ASes kept as normal nodes; noted in manifest for reference"
+  ]
+}
