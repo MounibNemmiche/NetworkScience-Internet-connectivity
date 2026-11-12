@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "created_at": "2026-11-12T14:10:08.265436+00:00",
+  "runtime_seconds": 5.6,
+  "config": {
+    "snapshot": "20261001",
+    "focal_country": "IT",
+    "pagerank": {
+      "damping": 0.85,
+      "teleportation": "uniform",
+      "weighted": false
+    }
+  },
+  "input_hashes": {
+    "edges.csv": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
+    "analysis_asns.csv": "9ecb1b6b5c1af3982e76e1277a24bc994aebdccc2fbceb9dbd31ad6f1d2c3954",
+    "focal_asns.csv": "a7816c7060ef63fe1f7dfcdfdee17cb158f17309e4a97c64e4c8129aa1ecf488",
+    "external_asns.csv": "de2efbf582ff44248f5767ef50053c4b41bd5ec8e3fe5036cdfd315f5588f39b",
+    "nodes.csv": "46d8247b8461e183b39d5bc5ecba2c91ac2654b3a2d4fec122b7df7a2c15f111",
+    "relationships.csv": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005"
+  },
+  "output_hashes": {
+    "node_scores.csv": "e58ff170738a5889637da3b963db9127232555bdfdfee26cc5dd00bdfeaf11ee",
+    "provider_summary.csv": "8c7ac83461cdaf44042ed08b7c0fca49b57ce8763595914bf2ae56baec2ec41a",
+    "focal_dependency.csv": "ca2c74b7b2e5678d3267f2e5253df3fd22e1eca1ec486a44ab14a81190ea7268",
+    "findings.md": "b2a678adeb9d2b29c0d6de8289e32fb1e43fbe45fad7483985b77c28a467d4d7"
+  },
+  "library_versions": {
+    "networkx": "3.7",
+    "numpy": "2.5.4"
+  },
+  "counts": {
+    "graph_nodes": 80966,
+    "graph_edges": 657444,
+    "focal_asns": 1087,
+    "external_asns": 79433,
+    "candidate_providers": 107
+  }
+}
