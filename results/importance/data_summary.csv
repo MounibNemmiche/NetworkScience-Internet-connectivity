@@ -1,0 +1,16 @@
+metric,value
+snapshot,20261001
+nodes_total,80966
+edges_total,657444
+connected_components,1
+average_degree,16.24
+median_degree,2
+max_degree,10066
+min_degree,1
+density,2.005805e-04
+focal_nodes_IT,1087
+focal_percentage,1.343
+external_nodes,79433
+external_percentage,98.107
+nodes_missing_country,446
+nodes_missing_metadata,446

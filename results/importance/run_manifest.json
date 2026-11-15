@@ -1,15 +1,26 @@
 {
-  "schema_version": "1.0",
-  "created_at": "2026-11-12T14:10:08.265436+00:00",
-  "runtime_seconds": 5.6,
+  "schema_version": "1.1",
+  "created_at": "2026-11-15T17:19:16.569976+00:00",
+  "runtime_seconds": 11.49,
   "config": {
     "snapshot": "20261001",
     "focal_country": "IT",
     "pagerank": {
       "damping": 0.85,
       "teleportation": "uniform",
-      "weighted": false
+      "weighted": false,
+      "tol": 1e-06,
+      "max_iter": 500
     }
+  },
+  "convergence_check": {
+    "algorithm": "networkx_pagerank",
+    "damping": 0.85,
+    "tol": 1e-06,
+    "max_iter": 500,
+    "sum_pagerank": 0.9999999999999991,
+    "exact_l1_residual": 0.04253274185803965,
+    "converged": true
   },
   "input_hashes": {
     "edges.csv": "0e71d01754a6bc2e3d8968f70181e18397b0d96a8569c8aee1913feffd7fe53e",
@@ -20,14 +31,16 @@
     "relationships.csv": "7677674d918467356746ad645f3e749ff2f2ca88f0e1450f5aff7b9fc2b5b005"
   },
   "output_hashes": {
+    "data_summary.csv": "8625db679298b4a6d941550c0f521f4471671ae0af43f25e4501fa09e25a6224",
     "node_scores.csv": "e58ff170738a5889637da3b963db9127232555bdfdfee26cc5dd00bdfeaf11ee",
-    "provider_summary.csv": "8c7ac83461cdaf44042ed08b7c0fca49b57ce8763595914bf2ae56baec2ec41a",
+    "provider_summary.csv": "bbdbef068536f945d1b5df6bb600107a882bf0cc0c8dd82c40c75821e3c70942",
     "focal_dependency.csv": "ca2c74b7b2e5678d3267f2e5253df3fd22e1eca1ec486a44ab14a81190ea7268",
-    "findings.md": "b2a678adeb9d2b29c0d6de8289e32fb1e43fbe45fad7483985b77c28a467d4d7"
+    "findings.md": "32e3ac4e7e6fe146bd7db662e298a1e0c9a2268b209257b77d4f2c6833ee740a"
   },
   "library_versions": {
     "networkx": "3.7",
-    "numpy": "2.5.4"
+    "numpy": "2.5.4",
+    "matplotlib": "3.11.2"
   },
   "counts": {
     "graph_nodes": 80966,

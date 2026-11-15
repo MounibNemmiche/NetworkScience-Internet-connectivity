@@ -12,18 +12,43 @@ contains 1,087 Italian ASes and 107 candidate external providers.
 
 - [Data preparation](scripts/prepare_data.py) and
   [package validation](scripts/validate_package.py).
-- [Provider importance](analysis/importance/run_importance.py).
+- [Provider importance and dependence](analysis/importance/run_importance.py).
+- [Importance findings and data summary](results/importance/findings.md).
 - [Community scores, Louvain and provider-removal experiments](analysis/resilience/README.md).
 - [Community results](results/resilience/community_findings.md) and
   [robustness results](results/resilience/robustness_findings.md).
 - [Gephi screenshots, captions and editable project](results/resilience/gephi/README.md).
 - [Numerical validation](results/resilience/final_validation.md).
 
-The resilience workflow reads the shared package directly. It derives its own
-provider pool and targeted order without importing saved importance rankings.
-It does not modify the shared input CSVs or the importance workflow.
+## Run the complete workflows
 
-## Run the resilience analysis
+### 1. Data Preparation and Package Validation (Student A)
+
+The raw CAIDA files are processed to build the immutable shared package:
+
+```powershell
+python scripts/prepare_data.py
+python scripts/validate_package.py
+```
+
+### 2. Provider Importance and Dependence Analysis (Student A)
+
+Computes degree, PageRank (with stationary residual convergence verification), local Italian transit customer counts, multihoming statistics, and exports figures and findings:
+
+```powershell
+python -m pip install -r requirements.txt
+python analysis/importance/run_importance.py
+```
+
+Outputs are saved under `results/importance/`:
+- `data_summary.csv` — overall network and metadata summary metrics.
+- `node_scores.csv` — global degree and PageRank for all 80,966 nodes in G.
+- `provider_summary.csv` — candidate external providers with customer counts, fractions, and intra-set ranks.
+- `focal_dependency.csv` — observed upstream transit provider counts per Italian AS.
+- `findings.md` — detailed comparative discussion, case studies, and limitations.
+- `figures/` — degree distribution (log-log & CCDF), ranking scatters, rank comparison bar chart, coverage, and dependency histograms.
+
+### 3. Community Detection and Resilience Analysis (Student B)
 
 Use Python 3.12 and run from the repository root:
 

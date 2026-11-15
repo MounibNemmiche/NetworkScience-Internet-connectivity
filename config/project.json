@@ -4,7 +4,9 @@
     "pagerank": {
         "damping": 0.85,
         "teleportation": "uniform",
-        "weighted": false
+        "weighted": false,
+        "tol": 1e-06,
+        "max_iter": 500
     },
     "louvain": {
         "resolution": 1.0,
