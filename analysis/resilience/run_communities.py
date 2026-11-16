@@ -23,6 +23,7 @@ from .community_analysis import CommunityAnalysis, CommunityAnalysisError, run_l
 from .community_metrics import CommunityScoreError
 from .community_plots import render_community_figures
 from .graph_loader import GraphBaseline, ValidationError, load_graph
+from .result_compatibility import configuration_record
 
 
 def _hash(path: Path) -> str:
@@ -245,7 +246,7 @@ def _export(baseline: GraphBaseline, analysis: CommunityAnalysis, stage: Path,
             raise CommunityAnalysisError(f"Input {name} changed during the run")
     code_directory = Path(__file__).parent
     sources = ("graph_loader.py", "community_metrics.py", "community_analysis.py",
-               "community_plots.py", "run_communities.py")
+               "community_plots.py", "run_communities.py", "result_compatibility.py")
     manifest = {
         "status": "complete", "scope": "baseline communities only; no provider removals",
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -256,6 +257,7 @@ def _export(baseline: GraphBaseline, analysis: CommunityAnalysis, stage: Path,
         "country_policy": baseline.report["country_policy"],
         "hash_policy": baseline.report["hash_policy"], "processed_input_hashes": baseline.report["processed_hashes"],
         "config_sha256": baseline.report["config_sha256"], "manifest_sha256": baseline.report["manifest_sha256"],
+        "configuration_compatibility": configuration_record(json.loads(config_path.read_text(encoding="utf-8"))),
         "source_hashes": {name: _hash(code_directory / name) for name in sources},
         "settings": {"algorithm": "Louvain", "backend": "networkx", "weighted": False,
                      "resolution": analysis.resolution, "threshold": analysis.threshold, "max_level": None,

@@ -20,6 +20,7 @@ import numpy as np
 
 from .graph_loader import load_graph
 from .robustness import METRICS, assigned_country_sensitivity
+from .result_compatibility import POLICY, RECONCILIATION_FILE, verify_saved_results
 
 
 def _csv(path):
@@ -116,18 +117,20 @@ def main(argv=None):
     root = Path(__file__).resolve().parents[2]
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=root / "config/project.json")
+    parser.add_argument("--report-dir", type=Path, help="Save this audit separately from historical validation reports")
+    parser.add_argument("--junitxml", type=Path, help="Use a separately saved unit-test run")
     args = parser.parse_args(argv)
     baseline = load_graph(args.config, hash_policy="newline-compatible")
     config = json.loads(args.config.read_text(encoding="utf-8"))
     out = (args.config.resolve().parent.parent / config["paths"]["results_resilience"]).resolve()
-    combined = json.loads((out / "run_manifest.json").read_text(encoding="utf-8"))
-    for name, wanted in combined["output_hashes"].items():
-        file = (out / name).resolve()
-        _check(file.is_relative_to(out) and _hash(file) == wanted, f"Combined output hash mismatch: {name}")
-    for manifest_name in ("community_run_manifest.json", "robustness_run_manifest.json", "run_manifest.json"):
-        manifest = json.loads((out / manifest_name).read_text(encoding="utf-8"))
-        for name, wanted in manifest["source_hashes"].items():
-            _check(Path(name).name == name and _hash(Path(__file__).parent / name) == wanted, f"Source changed: {name}")
+    manifests = verify_saved_results(out, baseline, config)
+    combined = manifests["run_manifest.json"]
+    report_dir = args.report_dir.resolve() if args.report_dir else out
+    protected = [Path(baseline.report["package_directory"])]
+    if config["paths"].get("raw_data"):
+        protected.append((args.config.resolve().parent.parent / config["paths"]["raw_data"]).resolve())
+    _check(not any(report_dir == path or report_dir.is_relative_to(path) for path in protected),
+           "Validation reports cannot be written into shared inputs")
     assignments = defaultdict(dict)
     for row in _csv(out / "community_assignments.csv"):
         seed, asn, community = int(row["seed"]), int(row["asn"]), int(row["community_id"])
@@ -156,11 +159,12 @@ def main(argv=None):
     exported = {(int(row["source_community"]), int(row["target_community"])): int(row["edge_count"])
                 for row in _csv(out / "community_edges.csv")}
     _check(dict(quotient) == exported, "Quotient edges differ from direct reconstruction")
-    robust_manifest = json.loads((out / "robustness_run_manifest.json").read_text(encoding="utf-8"))
+    robust_manifest = manifests["robustness_run_manifest.json"]
     primary = _robustness(out, baseline, robust_manifest["primary"]["settings"])
     alternate = _robustness(out / "sensitivity/eu_excluded", assigned_country_sensitivity(baseline),
                             robust_manifest["sensitivity"]["settings"]) if robust_manifest["sensitivity"] else None
-    junit = ET.parse(out / "tests.junit.xml")
+    junit_path = args.junitxml.resolve() if args.junitxml else out / "tests.junit.xml"
+    junit = ET.parse(junit_path)
     suites = list(junit.getroot().iter("testsuite"))
     test_count = sum(int(suite.attrib.get("tests", 0)) for suite in suites)
     failures = sum(int(suite.attrib.get("failures", 0)) + int(suite.attrib.get("errors", 0)) for suite in suites)
@@ -171,9 +175,16 @@ def main(argv=None):
               "primary": primary, "sensitivity": alternate, "tests_passed": test_count,
               "combined_manifest_sha256": _hash(out / "run_manifest.json"),
               "verifier_sha256": _hash(Path(__file__)),
+              "unit_test_report_sha256": _hash(junit_path),
+              "configuration_compatibility": {
+                  "policy": POLICY, "current_config_sha256": baseline.report["config_sha256"],
+                  "original_run_config_sha256": {name: manifest["config_sha256"] for name, manifest in manifests.items()},
+                  "reconciliation_sha256": _hash(out / RECONCILIATION_FILE) if (out / RECONCILIATION_FILE).is_file() else None,
+                  "experiments_recomputed": False},
               "scope": "All exported hashes, orders, denominators, monotonicity and quantile bindings; "
                        "NetworkX modularity and quotient reconstruction; listed independent component samples."}
-    with (out / "final_validation.json").open("w", encoding="utf-8", newline="\n") as handle:
+    report_dir.mkdir(parents=True, exist_ok=True)
+    with (report_dir / "final_validation.json").open("w", encoding="utf-8", newline="\n") as handle:
         json.dump(report, handle, indent=2, sort_keys=True)
         handle.write("\n")
     lines = ["# Final numerical checks", "", f"Status: passed. Saved unit tests: {test_count} passed, no failures.", "",
@@ -182,9 +193,10 @@ def main(argv=None):
              f"Independent NetworkX checks covered {len(primary['independent_component_samples'])} listed component snapshots.", "",
              "All saved scenario orders, fixed denominators, bounds, monotonicity and percentile bindings were checked. "
              "The JSON record distinguishes these full-table checks from sampled independent component recalculation.", "",
-             "The country-label sensitivity was checked separately. Source/output hashes matched the recorded manifests. "
+             "The country-label sensitivity was checked separately. Effective configuration, baseline and output hashes passed "
+             "the shared reuse checks. Source hashes matched the original records or explicitly reviewed metadata reconciliations. "
              "Fresh-environment byte-level reproduction is also recorded in reproduction_check.json.", ""]
-    with (out / "final_validation.md").open("w", encoding="utf-8", newline="\n") as handle:
+    with (report_dir / "final_validation.md").open("w", encoding="utf-8", newline="\n") as handle:
         handle.write("\n".join(lines))
     print(f"Final validation passed: {test_count} tests; {primary['metric_rows']} primary rows; "
           f"{len(primary['independent_component_samples'])} independent component snapshots per scenario.")

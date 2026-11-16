@@ -22,6 +22,7 @@ import scipy
 from .graph_loader import ValidationError, load_graph
 from .robustness import METRICS, RobustnessError, assigned_country_sensitivity, run_robustness
 from .robustness_plots import LABELS, render_robustness_figures
+from .result_compatibility import configuration_record
 
 
 def _hash(path):
@@ -205,6 +206,7 @@ def main(argv=None):
                 "baseline_fingerprint": baseline.report["baseline_fingerprint"],
                 "input_counts": baseline.report["counts"], "input_warnings": baseline.report["warnings"],
                 "config_sha256": baseline.report["config_sha256"], "manifest_sha256": baseline.report["manifest_sha256"],
+                "configuration_compatibility": configuration_record(config),
                 "processed_input_hashes": baseline.report["processed_hashes"],
                 "primary": {"country_policy": baseline.report["country_policy"], "settings": result.settings,
                             "run_rows": len(result.runs), "order_rows": len(result.removal_order),
@@ -217,7 +219,8 @@ def main(argv=None):
                     "excluded_external_asns": sorted(baseline.external_asns - alternative_baseline.external_asns),
                     "excluded_candidate_asns": sorted(baseline.candidate_providers - alternative_baseline.candidate_providers)},
                 "source_hashes": {name: _hash(source / name) for name in
-                                  ("graph_loader.py", "robustness.py", "robustness_plots.py", "run_robustness.py")},
+                                  ("graph_loader.py", "robustness.py", "robustness_plots.py", "run_robustness.py",
+                                   "result_compatibility.py")},
                 "environment": {"python": platform.python_version(), "networkx": nx.__version__,
                                 "numpy": np.__version__, "scipy": scipy.__version__, "matplotlib": matplotlib.__version__},
                 "runtime_seconds": time.perf_counter() - started,

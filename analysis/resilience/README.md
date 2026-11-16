@@ -22,8 +22,48 @@ sensitivity experiments, and records findings, an input contract and a combined
 manifest under `results/resilience/`.
 
 `--reuse-communities` and `--reuse-robustness` retain existing results only after
-their baseline, configuration, source and output hashes pass verification.
+their baseline, effective configuration, source and output hashes pass verification.
+With both flags, validation leaves the original reports and manifests unchanged.
 Changed or incomplete results are rejected.
+
+### Configuration compatibility and original run history
+
+`student-b-effective-config-v1` parses JSON, removes only `pagerank.tol` and
+`pagerank.max_iter`, fills the omitted Louvain threshold with its runtime default
+`1e-7`, and serializes sorted keys as compact ASCII-escaped UTF-8 JSON. Damping,
+resolution and threshold use floating-point representation. Whitespace, object
+key order and LF/CRLF endings do not affect this fingerprint. Array order,
+integer-only settings and all other keys remain significant, including unknown
+future settings. This conservative policy retains damping, teleportation,
+weighting, Louvain controls, robustness controls and input declarations.
+
+New run manifests retain the original byte-level `config_sha256` and add a
+`configuration_compatibility` snapshot and fingerprint. The baseline fingerprint
+still binds all six processed inputs through their LF-normalized hashes; source
+and output hashes still require exact bytes. Saved-result verification and reuse
+call the same compatibility validator.
+
+Legacy runs with a different configuration byte hash require explicit recovery
+of the original configuration. To reconcile them without rerunning experiments:
+
+```powershell
+python -m analysis.resilience.reconcile_results --original-config <recovered-config.json> --source-review <reviewed-sources.json> --recovery "Describe the Git revision and exact LF/CRLF variant recovered"
+python -m analysis.resilience.run_resilience --hash-policy newline-compatible --reuse-communities --reuse-robustness
+```
+
+The recovered bytes must match every historical configuration hash. The review
+JSON maps each changed orchestration wrapper to `original_sha256`,
+`compatible_sha256` and a nonempty `reason`. Only `run_communities.py`,
+`run_robustness.py` and `run_resilience.py` can receive reviewed metadata-only
+exceptions; numerical source changes cannot be reconciled. The command verifies
+the effective settings, baseline and all saved hashes before creating
+`compatibility_reconciliation.json`. It refuses to replace an existing sidecar.
+
+The sidecar binds exact original manifest bytes, recovered configuration bytes,
+reviewed source transitions and the compatibility validator's hash. It records
+`experiments_recomputed: false`; original timestamps, hashes, runtimes and results
+stay intact. Later genuine runs use their own canonical records and exact source
+hashes independently of this historical sidecar.
 
 ## Individual commands
 
@@ -115,6 +155,11 @@ After saving a unit-test run, verify the recorded exports with:
 python -m pytest analysis/resilience/tests -q --junitxml=results/resilience/tests.junit.xml
 python -m analysis.resilience.verify_results
 ```
+
+To preserve historical test and validation reports, save the new JUnit file
+separately and pass `--junitxml <new-tests.junit.xml>` and
+`--report-dir <new-audit-directory>` to `verify_results`. This audit checks saved
+partitions and component samples without rerunning Louvain or removal experiments.
 
 The verifier checks output/source hashes, community coverage and quotient counts,
 all saved removal orders, denominators and percentile bindings. It independently

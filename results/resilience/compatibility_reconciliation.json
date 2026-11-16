@@ -1,0 +1,127 @@
+{
+  "configuration_compatibility": {
+    "effective_config": {
+      "data_sources": {
+        "organizations": {
+          "filename": "20261001.as-org2info.txt.gz",
+          "sha256": "e010e11531e097d02cef583f666f578e7723ec5db58b1c8cb43d4c8e6f416c0d",
+          "url": "https://publicdata.caida.org/datasets/as-organizations/20261001.as-org2info.txt.gz"
+        },
+        "relationships": {
+          "filename": "20261001.as-rel2.txt.bz2",
+          "sha256": "8810a457ebdffd85c7e86782a8a76e85a86d623bd52bc52e622a3c4ad5c0d521",
+          "url": "https://publicdata.caida.org/datasets/as-relationships/serial-2/20261001.as-rel2.txt.bz2"
+        }
+      },
+      "focal_country": "IT",
+      "louvain": {
+        "resolution": 1.0,
+        "seeds": [
+          11,
+          22,
+          33
+        ],
+        "threshold": 1e-07
+      },
+      "pagerank": {
+        "damping": 0.85,
+        "teleportation": "uniform",
+        "weighted": false
+      },
+      "paths": {
+        "processed_data": "data/processed/v1",
+        "raw_data": "data/raw",
+        "results_importance": "results/importance",
+        "results_resilience": "results/resilience"
+      },
+      "robustness": {
+        "max_removed_providers": 20,
+        "max_removed_providers_note": "capped at min(20, |P|) at runtime",
+        "random_seeds": [
+          1001,
+          1002,
+          1003,
+          1004,
+          1005,
+          1006,
+          1007,
+          1008,
+          1009,
+          1010,
+          1011,
+          1012,
+          1013,
+          1014,
+          1015,
+          1016,
+          1017,
+          1018,
+          1019,
+          1020,
+          1021,
+          1022,
+          1023,
+          1024,
+          1025,
+          1026,
+          1027,
+          1028,
+          1029,
+          1030
+        ],
+        "random_trials": 30,
+        "targeted_ordering": "focal_customer_count_desc, degree_desc, asn_asc"
+      },
+      "snapshot": "20261001"
+    },
+    "effective_sha256": "74535e8aa22839b31024f0445036ac3f822c4c05683fa6de28f0066ef475b432",
+    "policy": "student-b-effective-config-v1"
+  },
+  "created_at_utc": "2026-11-16T15:41:13.889379+00:00",
+  "experiments_recomputed": false,
+  "manifests": {
+    "community_run_manifest.json": {
+      "manifest_sha256": "5990b877a770a4bb28060a993f5d5f68641a30f5e662c5c037980405e5841a82",
+      "source_reconciliations": {
+        "run_communities.py": {
+          "compatible_sha256": "2147f31ecd0b985dc2da58be9790be444a61e5cc56061096c29212f5d2708724",
+          "original_sha256": "e5b218009e70e36a5a88269d51e6bc225d872f947109592939bec892c9fa3a8c",
+          "reason": "Reviewed diff: imports the compatibility metadata helper, adds its source hash and a canonical configuration record to future manifests. Louvain execution, scoring and scientific exports are unchanged."
+        }
+      }
+    },
+    "robustness_run_manifest.json": {
+      "manifest_sha256": "f225295b82046772791332dd471aa7181ec12673643dfb9934c86b18df28b202",
+      "source_reconciliations": {
+        "run_robustness.py": {
+          "compatible_sha256": "2cb1b11342ba6702d55c116c7e09ad26a3410258f1ae8f332195f8f5465acd70",
+          "original_sha256": "6ec79d70a15386b08ad6b78502b66be240e02037746a5596e5bd9cd1662faaaf",
+          "reason": "Reviewed diff: imports the compatibility metadata helper and adds its source hash and canonical configuration record to future manifests. Provider ordering, removals, metrics, random trials and country sensitivity are unchanged."
+        }
+      }
+    },
+    "run_manifest.json": {
+      "manifest_sha256": "2674b7ca067e0e97370828d44203acd731b3b042f456424fad32863198aa88ea",
+      "source_reconciliations": {
+        "run_resilience.py": {
+          "compatible_sha256": "b9979ba3b3978a5ede90ee746b1684dc1a66912009d61ce4d8bc388fa30ca41c",
+          "original_sha256": "595c5e1b7ea13bdf4137b5825686aa90ec469994d71ba81fe57cabf4eab00af8",
+          "reason": "Reviewed diff: delegates cache checks to the shared validator; adds future canonical provenance; validates both cached runs without rewriting historical outputs. Report wording describes effective settings. No scientific algorithm is implemented or changed in this wrapper."
+        }
+      }
+    }
+  },
+  "migration_source_hashes": {
+    "reconcile_results.py": "d64261e67c420bbc67adec11f0ef7ff225b6ae894f5f47eeb7566d114f45528d"
+  },
+  "operation": "compatibility_metadata_reconciliation",
+  "original_configuration": {
+    "recovery": "Recovered git show e2269551332fb7f8c10f4f851aae43abf178f6c0:config/project.json; its CRLF variant exactly matches all three original run configuration hashes. See separate recovery_evidence.json for byte hashes and reviewed wrapper diffs.",
+    "sha256": "b294e271e60fa5e1deb61e145e314de47371a08d1f9a0f10d35ccb6ce1300897",
+    "utf8": "{\r\n    \"snapshot\": \"20261001\",\r\n    \"focal_country\": \"IT\",\r\n    \"pagerank\": {\r\n        \"damping\": 0.85,\r\n        \"teleportation\": \"uniform\",\r\n        \"weighted\": false\r\n    },\r\n    \"louvain\": {\r\n        \"resolution\": 1.0,\r\n        \"seeds\": [11, 22, 33]\r\n    },\r\n    \"robustness\": {\r\n        \"max_removed_providers\": 20,\r\n        \"max_removed_providers_note\": \"capped at min(20, |P|) at runtime\",\r\n        \"random_trials\": 30,\r\n        \"random_seeds\": [\r\n            1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010,\r\n            1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020,\r\n            1021, 1022, 1023, 1024, 1025, 1026, 1027, 1028, 1029, 1030\r\n        ],\r\n        \"targeted_ordering\": \"focal_customer_count_desc, degree_desc, asn_asc\"\r\n    },\r\n    \"paths\": {\r\n        \"raw_data\": \"data/raw\",\r\n        \"processed_data\": \"data/processed/v1\",\r\n        \"results_importance\": \"results/importance\",\r\n        \"results_resilience\": \"results/resilience\"\r\n    },\r\n    \"data_sources\": {\r\n        \"relationships\": {\r\n            \"url\": \"https://publicdata.caida.org/datasets/as-relationships/serial-2/20261001.as-rel2.txt.bz2\",\r\n            \"filename\": \"20261001.as-rel2.txt.bz2\",\r\n            \"sha256\": \"8810a457ebdffd85c7e86782a8a76e85a86d623bd52bc52e622a3c4ad5c0d521\"\r\n        },\r\n        \"organizations\": {\r\n            \"url\": \"https://publicdata.caida.org/datasets/as-organizations/20261001.as-org2info.txt.gz\",\r\n            \"filename\": \"20261001.as-org2info.txt.gz\",\r\n            \"sha256\": \"e010e11531e097d02cef583f666f578e7723ec5db58b1c8cb43d4c8e6f416c0d\"\r\n        }\r\n    }\r\n}\r\n"
+  },
+  "schema_version": 1,
+  "validation_source_hashes": {
+    "result_compatibility.py": "91dedbc5473d81aafd5ebda7735d457f072edf32d2e11f5f4866c4560c467b06"
+  }
+}

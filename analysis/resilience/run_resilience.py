@@ -12,44 +12,18 @@ from pathlib import Path
 from .graph_loader import ValidationError, load_graph
 from . import run_communities, run_robustness
 from .validate_graph import write_reports as write_graph_reports
+from .result_compatibility import configuration_record, verify_manifest, verify_saved_results
 
 
 def _hash(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
-def _verified_manifest(path, output, baseline, *, check_source=True):
-    data = json.loads(path.read_text(encoding="utf-8"))
-    if not isinstance(data, dict) or data.get("status") != "complete":
-        raise ValueError(f"{path.name}: incomplete or invalid run manifest")
-    if not isinstance(data.get("output_hashes"), dict) or not data["output_hashes"]:
-        raise ValueError(f"{path.name}: missing output hashes")
-    if not isinstance(data.get("source_hashes"), dict) or not data["source_hashes"]:
-        raise ValueError(f"{path.name}: missing source hashes")
-    required = ({"community_assignments.csv", "community_quality.csv", "community_summary.csv",
-                 "community_edges.csv", "community_provider_membership.csv", "seed_sensitivity.csv",
-                 "community_findings.md"} if path.name == "community_run_manifest.json" else
-                {"robustness_runs.csv", "removal_order.csv", "robustness_summary.csv", "robustness_findings.md"})
-    if not required <= data["output_hashes"].keys():
-        raise ValueError(f"{path.name}: missing required output entries")
-    if data.get("baseline_fingerprint") != baseline.report["baseline_fingerprint"]:
-        raise ValueError(f"{path.name}: input baseline differs; rerun this analysis")
-    if data.get("config_sha256") != baseline.report["config_sha256"]:
-        raise ValueError(f"{path.name}: configuration differs; rerun this analysis")
-    for name, wanted in data.get("output_hashes", {}).items():
-        file = (output / name).resolve()
-        if not file.is_relative_to(output) or not file.is_file() or _hash(file) != wanted:
-            raise ValueError(f"{path.name}: missing or changed output {name}")
-    if check_source:
-        for name, wanted in data.get("source_hashes", {}).items():
-            if Path(name).name != name:
-                raise ValueError(f"{path.name}: invalid source filename")
-            if _hash(Path(__file__).parent / name) != wanted:
-                raise ValueError(f"{path.name}: source {name} changed; rerun this analysis")
-    return data
+def _verified_manifest(path, output, baseline, config, *, check_source=True):
+    return verify_manifest(path, output, baseline, config, check_source=check_source)
 
 
-def write_combined_record(output, baseline, communities, robustness):
+def write_combined_record(output, baseline, communities, robustness, config):
     quality = next(run["scores"] for run in communities["runs"] if run["seed"] == communities["selected_seed"])
     report = [
         "# Student B: communities and robustness", "",
@@ -74,7 +48,7 @@ def write_combined_record(output, baseline, communities, robustness):
         "From the repository root, after installing `analysis/resilience/requirements.txt`:", "",
         "```powershell", "python -m analysis.resilience.run_resilience --hash-policy newline-compatible", "```", "",
         "To retain existing community outputs, use `--reuse-communities`; their baseline, "
-        "configuration, source and output hashes must match. This option never bypasses "
+        "effective configuration, source and output hashes must pass verification. This option never bypasses "
         "validation of changed or incomplete community results.", "",
         "`input_contract.json` records the exact input bytes, LF-normalized hashes, baseline "
         "sets and provider order. Newline compatibility accepts only demonstrated LF/CRLF "
@@ -115,11 +89,13 @@ def write_combined_record(output, baseline, communities, robustness):
         "created_at_utc": datetime.now(timezone.utc).isoformat(),
         "baseline_fingerprint": baseline.report["baseline_fingerprint"],
         "source_commit": baseline.report["source_commit"], "config_sha256": baseline.report["config_sha256"],
+        "configuration_compatibility": configuration_record(config),
         "input_counts": baseline.report["counts"], "input_warnings": baseline.report["warnings"],
         "selected_louvain_seed": communities["selected_seed"], "community_assignment_rows": communities["assignment_rows"],
         "primary_robustness_rows": robustness["primary"]["run_rows"],
         "sensitivity_robustness_rows": None if robustness["sensitivity"] is None else robustness["sensitivity"]["run_rows"],
-        "source_hashes": {"run_resilience.py": _hash(Path(__file__))},
+        "source_hashes": {name: _hash(Path(__file__).parent / name) for name in
+                          ("run_resilience.py", "result_compatibility.py")},
         "subrun_manifests": {name: _hash(output / name) for name in
                              ("community_run_manifest.json", "robustness_run_manifest.json")},
         "output_hashes": outputs,
@@ -149,21 +125,25 @@ def main(argv=None):
         if any(output == path or output.is_relative_to(path) for path in protected):
             raise ValueError("Student B results cannot be written into shared inputs")
         forwarded = ["--config", str(config_path), "--hash-policy", args.hash_policy, "--output-dir", str(output)]
+        if args.reuse_communities and args.reuse_robustness:
+            verify_saved_results(output, baseline, config)
+            print("Reusing verified community and robustness outputs; original run records preserved.", flush=True)
+            return 0
         if args.reuse_communities:
-            communities = _verified_manifest(output / "community_run_manifest.json", output, baseline)
+            communities = _verified_manifest(output / "community_run_manifest.json", output, baseline, config)
             print("Reusing verified community outputs.", flush=True)
         else:
             if run_communities.main(forwarded) != 0:
                 return 1
-            communities = _verified_manifest(output / "community_run_manifest.json", output, baseline)
+            communities = _verified_manifest(output / "community_run_manifest.json", output, baseline, config)
         if not args.reuse_robustness:
             if run_robustness.main(forwarded) != 0:
                 return 1
-        robustness = _verified_manifest(output / "robustness_run_manifest.json", output, baseline)
+        robustness = _verified_manifest(output / "robustness_run_manifest.json", output, baseline, config)
         if args.reuse_robustness:
             print("Reusing verified robustness outputs.", flush=True)
         write_graph_reports(baseline, output, project_root=config_path.parent.parent)
-        write_combined_record(output, baseline, communities, robustness)
+        write_combined_record(output, baseline, communities, robustness, config)
     except (ValidationError, OSError, ValueError, TypeError) as exc:
         print(f"Student B workflow failed: {exc}", file=sys.stderr)
         return 1
